@@ -29,13 +29,15 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
-      -
+      - id: import_gpg
         name: Import GPG key
-        id: import_gpg
-        uses: paultyng/ghaction-import-gpg@v2.1.0
-        env:
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-          PASSPHRASE: ${{ secrets.PASSPHRASE }}
+        uses: crazy-max/ghaction-import-gpg@v6
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+      -
+        name: List keys
+        run: gpg -K          
       -
         name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v5
