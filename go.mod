@@ -6,7 +6,7 @@ toolchain go1.23.3
 
 require (
 	github.com/foxcpp/go-mockdns v1.1.0
-	github.com/hashicorp/terraform-plugin-sdk/v2 v2.36.0
+	github.com/hashicorp/terraform-plugin-sdk/v2 v2.36.1
 )
 
 require (
